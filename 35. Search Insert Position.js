@@ -1,4 +1,6 @@
 const searchInsert = function(nums, target) {
+    // бинпоиск пишешь хорошо. 
+    // следующим шагом – написать задачу на бинпоиск без запуска программы и с первого раза
     let start = 0;
     let end = nums.length - 1;
     let position;

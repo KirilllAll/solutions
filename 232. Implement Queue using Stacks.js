@@ -7,6 +7,8 @@ MyQueue.prototype.push = function (x) {
 };
 
 MyQueue.prototype.pop = function () {
+	// что делает .shift?
+	// предполагается, что у стека есть доступ только к верхнему элементу, так что решение будет чуть сложнее. Надо использовать несколько стеков, см название задачи. 
 	return this.stack.shift();
 };
 

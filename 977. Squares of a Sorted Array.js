@@ -15,3 +15,5 @@ const sortedSquares = function(nums) {
     }
     return res;
 };
+// можешь оценить сложность?
+// за сколько работает unshift?

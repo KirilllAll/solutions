@@ -7,16 +7,17 @@
 
 	MyQueue.prototype.push = function (x) {
 		this.stack1.push(x);
+        // [].push(x) => stack1[x,y,z]  stack2[]
 	};
 
 	MyQueue.prototype.pop = function () {
-		if (this.isEmptyStack(this.stack2)) this.transfer();
-		return this.stack2.pop();
+		if (this.isEmptyStack(this.stack2)) this.transfer(); // stack2[z,y,x]
+		return this.stack2.pop(); // x
 	};
 
 	MyQueue.prototype.peek = function () {
-		if (this.isEmptyStack(this.stack2)) this.transfer();
-		return this.stack2[this.stack2.length - 1];
+		if (this.isEmptyStack(this.stack2)) this.transfer(); // stack[z,y,x]
+		return this.stack2[this.stack2.length - 1]; // x
 	};
 
 	MyQueue.prototype.empty = function () {
@@ -30,8 +31,8 @@
 	};
 
 	MyQueue.prototype.transfer = function () {
-		while (this.stack1.length > 0) {
-			this.stack2.push(this.stack1.pop());
+		while (this.stack1.length > 0) { ///[x, y, z]
+			this.stack2.push(this.stack1.pop()); //stack2 [z, y, x]
 		}
 	};
 }
@@ -58,7 +59,7 @@ MyQueue.prototype.peek = function () {
 MyQueue.prototype.empty = function () {
 	return !this.stack.length;
 };
-
+// [1,2,3,4,5] => стопка книг или стопка старелка LIFO
 /*
 Explanation
 MyQueue myQueue = new MyQueue();

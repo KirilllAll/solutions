@@ -43,6 +43,18 @@ const moveZeroes3 = (nums) => {
 	return nums;
 };
 
+// O(n) one loop 
+const moveZeroes4 = function(nums) {
+    let pointer2 = 0
+    for(let pointer1 = 0; pointer1 < nums.length; pointer1++){
+        if(nums[pointer1] !== 0) {
+            [nums[pointer1], nums[pointer2]] = [nums[pointer2], nums[pointer1]];
+            pointer2 +=1
+        }
+    }
+    return nums;
+};
+
 /**
  * 
  * 

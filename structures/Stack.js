@@ -24,7 +24,6 @@ Stack.prototype.empty = function () {
 
 const testStack = new Stack();
 
-
 // with two arr
 function StackArr() {
 	this._stack1 = [];

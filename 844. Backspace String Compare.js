@@ -2,8 +2,8 @@ const clearStr = (str) => {
 	const stack = [];
 	for (const item of str) {
 		if (item !== '#') {
-			stack.push(s);
-		} else if (st.length > 0) {
+			stack.push(item);
+		} else if (stack.length > 0) {
 			stack.pop();
 		}
 	}

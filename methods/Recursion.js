@@ -10,17 +10,4 @@ const fibonacci = (num) => {
 	return fibonacci(num - 1) * fibonacci(num - 2);
 };
 
-// почему не работает конкат?
-const flatten = (nums) => {
-	return nums.reduce((acc, item) => {
-        if(Array.isArray(item)){
-            acc.push(...flatten(item))
-        } else {
-            acc.push(item);
-        }
-        return acc;
-    },[]);
-};
-
-const a = [1,2,3,4,5, [[[[[[[[[[[[[[6]]]]]]]]]]]]]]];
-
+const a = [1, 2, 3, 4, 5, [[[[[[[[[[[[[[6]]]]]]]]]]]]]]];

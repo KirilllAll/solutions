@@ -11,7 +11,7 @@ async function getCats() {
 	);
 
 	return results
-		.filter((result) => !result.condition)
+		.filter((result) => !result.isCat)
 		.map((result) => result.item)
 		.slice(0, 3);
 }

@@ -16,10 +16,29 @@ async function getCats() {
 		.slice(0, 3);
 }
 
+async function* filterCats(getData, condition) {
+	const array = await getData();
+	for (const item of array) {
+		if (await condition(item)) {
+			yield item;
+		}
+	}
+}
+
+async function getGeneratorCats(data) {
+	const result = [];
+	for await (const item of data) {
+		result.push(item);
+	}
+	return result.slice(0, 3);
+}
+
+const prepareData = filterCats(catAndDogFetcher.fetchAll, magicalCatRecognizer.recognize);
+
 const run = async () => {
 	let topRatedCats;
 	try {
-		topRatedCats = await getCats();
+		topRatedCats = await getGeneratorCats(prepareData);
 		console.log(topRatedCats);
 	} catch (err) {
 		console.error(err);

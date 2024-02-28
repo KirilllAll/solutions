@@ -1,6 +1,11 @@
-const getPointOnDistance = (speed, time) => {
-    const allDistance = 109;
-    return Math.sign(speed) === 1 ?  speed * time - allDistance : allDistance - Math.abs(speed) * time;
+const getPointOnCircleDistance = (speed, time) => {
+	const ALL_DISTANCE = 109;
+	const formula = (speed * time) % ALL_DISTANCE;
+    const isPositiveNumber = Math.sign(formula) === 1;
+
+	return isPositiveNumber ? formula : ALL_DISTANCE - Math.abs(formula);
 };
-console.log(getPointOnDistance(60, 2)); // 11
-console.log(getPointOnDistance(-1, 1)); // 108
+console.log('test 60 60', getPointOnDistance(60, 60)); // 11
+console.log('test 60 2',getPointOnDistance(60, 2));
+console.log('test -1 1',getPointOnDistance(-10, 1)); // 108
+

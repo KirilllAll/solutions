@@ -1,17 +1,14 @@
 var maxDepth = function(s) {
-    let stack = []; 
-    let depth = 0; 
-
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === '(') {
-            stack.push(s[i]);
-            depth = Math.max(depth, stack.length);
-        } else if (s[i] === ')') {
-            stack.pop(); 
+    let count = 0;
+    return s.split('').reduce((acc, char) => {
+        if(char === '('){
+            count +=1;
+            acc = Math.max(acc, count);
+        } else if(char === ')'){
+            count -=1;
         }
-    }
-
-    return depth;
+        return acc;
+    })
 
 };
 

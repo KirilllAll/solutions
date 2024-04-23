@@ -1,3 +1,4 @@
+const divmod = (x, y) => [Math.floor(x / y), x % y];
 const isPalindrome = function (x) {
 	if (x < 0) {
 		return false;
@@ -7,11 +8,11 @@ const isPalindrome = function (x) {
 	let reserveNum = 0;
 
 	while (x) {
-		let lastNum = x % 10;
+        const [a,b] = divmod(x, 10)
 
-		reserveNum = reserveNum * 10 + lastNum;
+		reserveNum = reserveNum * 10 + b;
 
-		x = Math.floor(x / 10);
+		x = a;
 	}
 
 	return reserveNum === origin;
